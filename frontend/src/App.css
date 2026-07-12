@@ -87,13 +87,56 @@ body {
   border-bottom-color: var(--color-border);
 }
 
-.header__left { display: flex; align-items: center; }
+.header__left { display: flex; align-items: center; gap: var(--spacing-xl); }
 
 .header__right {
   display: flex;
   align-items: center;
   gap: var(--spacing-xl);
 }
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background-color: var(--color-bg-secondary);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 8px 14px;
+  transition: border-color var(--transition-fast);
+  width: 260px;
+}
+
+.search-bar:focus-within {
+  border-color: var(--color-accent);
+}
+
+.search-bar__icon { color: var(--color-text-secondary); flex-shrink: 0; }
+
+.search-bar__input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-text-primary);
+  font-size: 14px;
+  width: 100%;
+}
+
+.search-bar__input::placeholder { color: var(--color-text-secondary); }
+
+.search-bar__clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.search-bar__clear:hover { color: var(--color-text-primary); }
 
 .logo { display: flex; align-items: center; gap: var(--spacing-sm); }
 
@@ -319,12 +362,31 @@ body {
   color: white;
 }
 
+.categories--genres {
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  gap: var(--spacing-sm);
+}
+
+.category-btn--genre {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: 13px;
+  border-radius: var(--radius-lg, 999px);
+}
+
 /* ============ CONTENT ============ */
 
 .content {
   padding: var(--spacing-xl);
   max-width: 1400px;
   margin: 0 auto;
+}
+
+.content__heading {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text-primary);
 }
 
 .movies-grid {
@@ -790,6 +852,8 @@ body {
 
 @media (max-width: 768px) {
   .header { padding: var(--spacing-md); flex-wrap: wrap; }
+  .header__left { flex-wrap: wrap; gap: var(--spacing-md); width: 100%; }
+  .search-bar { width: 100%; }
   .header__right { gap: var(--spacing-md); }
   .logo__text { font-size: 14px; }
   .clock { flex-direction: row; gap: var(--spacing-md); align-items: center; }
